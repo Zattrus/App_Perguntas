@@ -6,6 +6,13 @@ main() => runApp(new PerguntaApp());
 
 // ignore: use_key_in_widget_constructors
 class PerguntaApp extends StatelessWidget {
+  var perguntasSelecionada = 0;
+
+  void responder() {
+    perguntasSelecionada++;
+    print('Pergunta respondida');
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<String> perguntas = [
@@ -20,18 +27,18 @@ class PerguntaApp extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Text(perguntas[0]),
+            Text(perguntas[perguntasSelecionada]),
             ElevatedButton(
               child: Text('Resposta 1'),
-              onPressed: () => print('Resposta 1 foi selecionada!'),
+              onPressed: responder,
             ),
             ElevatedButton(
               child: Text('Resposta 2'),
-              onPressed: () => print('Resposta 2 foi selecionada!'),
+              onPressed: responder,
             ),
             ElevatedButton(
               child: Text('Resposta 3'),
-              onPressed: () => print('Resposta 3 foi selecionada!'),
+              onPressed: responder,
             )
           ],
         ),
