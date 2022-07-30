@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 
 main() => runApp(new PerguntaApp());
 
-// ignore: use_key_in_widget_constructors
-class PerguntaApp extends StatelessWidget {
+class PerguntaAppState extends State<PerguntaApp> {
   var perguntasSelecionada = 0;
 
   void responder() {
-    perguntasSelecionada++;
+    setState(() {
+      perguntasSelecionada++;
+    });
+
     print('Pergunta respondida');
   }
 
@@ -45,4 +47,10 @@ class PerguntaApp extends StatelessWidget {
       ),
     );
   }
+}
+
+// ignore: use_key_in_widget_constructors
+class PerguntaApp extends StatefulWidget {
+  @override
+  PerguntaAppState createState() => PerguntaAppState();
 }
