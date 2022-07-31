@@ -13,8 +13,6 @@ class _PerguntaAppState extends State<PerguntaApp> {
     setState(() {
       _perguntasSelecionada++;
     });
-
-    print('Pergunta respondida');
   }
 
   @override
@@ -32,9 +30,9 @@ class _PerguntaAppState extends State<PerguntaApp> {
         body: Column(
           children: <Widget>[
             Questao(perguntas[_perguntasSelecionada]),
-            Resposta('Preto', _responder),
-            Resposta('Azul', _responder),
-            Resposta('Vermelho', _responder),
+            Resposta('Resposta 1', _responder),
+            Resposta('Resposta 2', _responder),
+            Resposta('Resposta 3', _responder),
           ],
         ),
       ),
