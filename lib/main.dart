@@ -7,11 +7,11 @@ import './resposta.dart';
 main() => runApp(new PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
-  var _perguntasSelecionada = 0;
+  var _perguntaSelecionada = 0;
 
   void _responder() {
     setState(() {
-      _perguntasSelecionada++;
+      _perguntaSelecionada++;
     });
   }
 
@@ -29,7 +29,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: Column(
           children: <Widget>[
-            Questao(perguntas[_perguntasSelecionada]),
+            Questao(perguntas[_perguntaSelecionada]),
             Resposta('Resposta 1', _responder),
             Resposta('Resposta 2', _responder),
             Resposta('Resposta 3', _responder),
