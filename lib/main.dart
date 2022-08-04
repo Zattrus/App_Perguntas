@@ -8,28 +8,46 @@ main() => runApp(new PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
-
+  var _pontuacaoTotal = 0;
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
-      'respostas': ['Preto', 'Azul', 'Vermelho', 'Verde'],
+      'respostas': [
+        {'texto': 'Preto', 'pontuacao': 10},
+        {'texto': 'Vermelho', 'pontuacao': 5},
+        {'texto': 'Verde', 'pontuacao': 3},
+        {'texto': 'Branco', 'pontuacao': 1},
+      ],
     },
     {
       'texto': 'Qual é o seu animal favorito?',
-      'respostas': ['Macaco', 'Elefante', 'Coelho', 'Leão'],
+      'respostas': [
+        {'texto': 'Macaco', 'pontuacao': 10},
+        {'texto': 'Elefante', 'pontuacao': 2},
+        {'texto': 'Coelho', 'pontuacao': 7},
+        {'texto': 'Leão', 'pontuacao': 5},
+      ],
     },
     {
       'texto': 'Qual é o seu instrutor favorito?',
-      'respostas': ['Maria', 'João', 'Pedro', 'Leo'],
+      'respostas': [
+        {'texto': 'Maria', 'pontuacao': 7},
+        {'texto': 'João', 'pontuacao': 8},
+        {'texto': 'Pedro', 'pontuacao': 6},
+        {'texto': 'Leo', 'pontuacao': 10},
+      ],
     },
   ];
 
-  void _responder() {
+  void _responder(int pontuacao) {
     if (temPerguntaSelecionada) {
       setState(() {
         _perguntaSelecionada++;
+        _pontuacaoTotal += pontuacao;
       });
     }
+
+    print(_pontuacaoTotal);
   }
 
   bool get temPerguntaSelecionada {
